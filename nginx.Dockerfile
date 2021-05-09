@@ -25,7 +25,7 @@ RUN \
   mkdir /rootfs/run/nginx
 
 
-FROM scratch AS ttrss-micro
+FROM scratch AS nginx-micro
 LABEL maintainer="Alexandre Chanu <alexandre.chanu@gmail.com>"
 
 COPY --from=micro-build /rootfs/ /
