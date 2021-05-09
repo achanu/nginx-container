@@ -36,7 +36,7 @@ RUN \
 USER nginx
 CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
 
-VOLUME /etc/nginx/nginx.conf
+#VOLUME /etc/nginx/nginx.conf
 VOLUME /etc/nginx/conf.d
 VOLUME /usr/share/nginx/html
 EXPOSE 80/tcp
