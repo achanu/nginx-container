@@ -13,15 +13,18 @@ RUN \
   cp -v /etc/yum.repos.d/*.repo /rootfs/etc/yum.repos.d/ && \
   dnf -y module enable \
     --installroot /rootfs \
-    nginx:1.18 \
+    nginx:1.20 \
   && \
   dnf install -y \
     --installroot /rootfs \
     --setopt install_weak_deps=false --nodocs \
     nginx-mod-stream \
-  && \
-  dnf clean all && \
-  rm -rf /rootfs/var/cache/* && \
+    && \
+    rm -rf \
+      /rootfs/var/cache/* \
+    /rootfs/var/lib/{yum,dnf} \
+    /rootfs/var/log/{yum,dnf}* \
+    && \
   mkdir /rootfs/run/nginx
 
 
